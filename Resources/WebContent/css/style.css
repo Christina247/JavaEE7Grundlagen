@@ -1,0 +1,49 @@
+#wrapper {
+			display:table;
+			border-collapse:collapse;
+			height: 100%;
+			width: 100%;
+		}
+		
+		#top, #center, #bottom {
+			display: table-row;
+		}
+		
+		#top, #bottom {
+			height: 75px;
+			background-color: #666;
+			color: white;
+		}
+		
+		#top {
+			border-bottom:1px solid white;
+			text-align:center;
+			font-size: 3em;
+		}
+		
+		#bottom {
+			border-top:1px solid white;
+		}
+
+		#top div, #center div, #bottom div {
+			display:table-cell;
+		}
+		
+		#center div {
+			height: 100%;
+		}
+		
+		#center div, #bottom div {
+			padding: 10px;
+			margin: 10px;
+		}
+		
+		#top div {
+			vertical-align: middle;
+		}
+		
+		body {
+			position:fixed; top:0px; left:0px;bottom:0px; right:0px;  margin:0px;
+			background-color: #dedede;
+			font-family: "Trebuchet MS", Helvetica, Arial, sans-serif;
+		}
