@@ -1,0 +1,78 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"> 
+
+<h:head>
+	<style>
+		#wrapper {
+			display:table;
+			border-collapse:collapse;
+			height: 100%;
+			width: 100%;
+		}
+		
+		#top, #center, #bottom {
+			display: table-row;
+		}
+		
+		#top, #bottom {
+			height: 75px;
+			background-color: #666;
+			color: white;
+		}
+		
+		#top {
+			border-bottom:1px solid white;
+			text-align:center;
+			font-size: 3em;
+		}
+		
+		#bottom {
+			border-top:1px solid white;
+		}
+
+		#top div, #center div, #bottom div {
+			display:table-cell;
+		}
+		
+		#center div {
+			height: 100%;
+		}
+		
+		#center div, #bottom div {
+			padding: 10px;
+			margin: 10px;
+		}
+		
+		#top div {
+			vertical-align: middle;
+		}
+		
+		body {
+			position:fixed; top:0px; left:0px;bottom:0px; right:0px;  margin:0px;
+			background-color: #dedede;
+			font-family: "Trebuchet MS", Helvetica, Arial, sans-serif;
+		}
+	</style>
+</h:head> 
+<body> 
+	<div id="wrapper">
+		<div id="top">
+			<div>
+				<ui:insert name="kopfbereich">KOPFBEREICH</ui:insert>
+			</div>
+		</div>
+		
+		<div id="center">
+			<div><ui:insert name="inhaltsbereich">INHALTSBEREICH</ui:insert></div>
+		</div>
+		
+		<div id="bottom">
+			<div><ui:insert name="fussbereich">FUSSBEREICH</ui:insert></div>
+		</div>
+	</div>
+	
+</body> 
+</html>
