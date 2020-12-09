@@ -1,0 +1,23 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html">
+
+	<ui:composition template="/Template.xhtml">
+	
+		<ui:define name="kopfbereich">Keine Benutzer</ui:define>
+		<ui:define name="inhaltsbereich">
+			<div style="display:block">
+				<h3>Es sind leider keine User angelegt</h3>
+				<div>Sie können aber gerne weitere User anlegen.</div>&#160;
+				<div>
+					<h:form>
+						<h:commandButton action="RegisterUser" value="Neuen User anlegen" />
+					</h:form>
+				</div>
+			</div>
+		</ui:define>
+	
+	</ui:composition>
+</html>

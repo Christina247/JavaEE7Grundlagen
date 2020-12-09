@@ -1,0 +1,37 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html">
+
+	<ui:composition template="/Template.xhtml">
+	
+		<ui:define name="inhaltsbereich">
+		
+			<h:form>
+				<div style="display:block">
+				
+					<h3>Registrierung abschließen</h3>
+					
+					<h:outputLabel value="Eingegeber Username" />
+					<h:outputText value="#{ registerBean.loginName }" />
+					<br />&#160;<br />
+					
+					<h:outputLabel value="Kennwort" />
+					<h:outputText value="#{ registerBean.password }" />
+					<br />&#160;<br />
+					
+					<h:outputLabel value="Geschlecht" />
+					<h:outputText value="#{ registerBean.gender }" converter="LocalizingGenderConverter" />
+					<br />&#160;<br />
+		
+					<h:commandButton action="register-step2" value="Zurück" />&#160;
+					<h:commandButton action="#{ registerController.flowReturnValue }" value="Beenden" />
+				
+				</div>
+			</h:form>
+		
+		</ui:define>
+	
+	</ui:composition>
+</html>

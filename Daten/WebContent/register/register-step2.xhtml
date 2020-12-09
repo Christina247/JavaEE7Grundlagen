@@ -1,0 +1,38 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html">
+
+	<ui:composition template="/Template.xhtml">
+	
+		<ui:define name="inhaltsbereich">
+		
+			<div style="display:block">
+				<h:form>
+					<h3>AGB bestätigen</h3>
+					
+					<div style="font-style: italic;">
+						Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
+					</div>&#160;
+				
+					<div>
+						<h:selectBooleanCheckbox id="agb" required="true" requiredMessage="Bitte akzeptieren Sie die AGB!" value="#{ registerBean.acceptedTerms }" />
+						<h:outputText value="Ich akzeptiere die AGB!" />
+					</div>
+					<div><h:message for="agb" errorStyle="color:red"/></div>
+					
+					<div>
+						<h:commandButton action="register" value="Zurück" />&#160;
+						<h:commandButton action="register-step3" value="Weiter" />
+					</div>
+				</h:form>
+			</div>
+		
+		</ui:define>
+		
+		<ui:define name="kopfbereich">Registrierung (Schritt 2)</ui:define>
+		<ui:define name="fussbereich"></ui:define>
+	
+	</ui:composition>
+</html>

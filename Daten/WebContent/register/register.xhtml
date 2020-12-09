@@ -1,0 +1,56 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://xmlns.jcp.org/jsf/passthrough"
+      xmlns:jsf="http://xmlns.jcp.org/jsf">
+
+	<ui:composition template="/Template.xhtml">
+	
+		<ui:define name="inhaltsbereich">
+			<h:form prependId="false">
+				<div style="display:block">
+	
+					<h3>Registrierung</h3>
+				
+					<h:messages globalOnly="true" errorStyle="color:red"/>
+				
+					<div>
+						<h:outputLabel value="Benutzername angeben" for="loginName" />
+						<h:inputText id="loginName" 
+							value="#{ registerBean.loginName }"
+							p:placeholder="Anmeldename" />
+						
+						<h:message for="loginName" errorStyle="color:red" />
+					</div>
+					
+					<div>
+						<h:outputLabel value="Kennwort angeben" for="password" />
+						<h:inputSecret id="password" 
+							value="#{ registerBean.password }" />
+
+						<h:message for="password" errorStyle="color:red" />
+					</div>
+			
+					<div>
+						<h:outputLabel value="Geschlecht auswählen" for="gender" />
+						<h:selectOneMenu value="#{ registerBean.gender }" id="gender">
+							<f:selectItems value="#{ newUserController.genders }"></f:selectItems>
+							<f:converter converterId="GenderConverter" />
+						</h:selectOneMenu>
+					</div>
+					
+					<div>
+						<h:commandButton action="register-step2" value="Weiter" />
+					</div>
+			
+				</div>
+			</h:form>
+		</ui:define>
+
+		<ui:define name="kopfbereich">Registrierung</ui:define>
+		<ui:define name="fussbereich"></ui:define>
+	
+	</ui:composition>
+</html>

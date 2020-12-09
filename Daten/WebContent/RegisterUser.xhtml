@@ -1,0 +1,102 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://xmlns.jcp.org/jsf/passthrough"
+      xmlns:jsf="http://xmlns.jcp.org/jsf">
+
+	<ui:composition template="/Template.xhtml">
+	
+		<ui:define name="inhaltsbereich">
+		
+			<h:form prependId="false">
+				<div jsf:rendered="#{ !newUserBean.showThankYouMessage }">
+
+					<h3>Daten eingeben um #{ newUserController.time }</h3>
+				
+					<h:messages globalOnly="true" errorStyle="color:red"/>
+				
+						<div>
+							<h:outputLabel value="Benutzername angeben" for="loginName" />
+							<h:inputText id="loginName" 
+								value="#{ newUserBean.loginName }"
+								p:placeholder="Anmeldename" />
+							
+							<h:message for="loginName" errorStyle="color:red" />
+						</div>
+						
+						<div>
+							<h:outputLabel value="Kennwort angeben" for="password" />
+							<h:inputSecret id="password" 
+								value="#{ newUserBean.password }"
+								required="true"
+								requiredMessage="Bitte geben Sie ein Kennwort an!">
+								
+								<f:validateLength maximum="10" minimum="3"></f:validateLength>
+								
+							</h:inputSecret>
+								
+							<h:message for="password" errorStyle="color:red" />
+						</div>
+				
+						<div>
+							<h:outputLabel value="Geschlecht auswählen" for="gender" />
+							<h:selectOneMenu value="#{ newUserBean.gender }" id="gender">
+								<f:selectItems value="#{ newUserController.genders }"></f:selectItems>
+								<f:converter converterId="GenderConverter" />
+							</h:selectOneMenu>
+						</div>
+						
+						<div>
+							<h:commandButton actionListener="#{ newUserController.handleButtonClicked }" value="Daten übermitteln">
+								<f:ajax execute="@form" render="@form"></f:ajax>
+							</h:commandButton>
+						</div>
+						
+
+				
+				</div>
+				
+				<div jsf:id="thankYou" jsf:rendered="#{ newUserBean.showThankYouMessage }">
+					<h3>Danke! Ihre Daten wurden um #{ newUserController.time } gespeichert!</h3>
+					
+					<h:outputLabel value="Benutzername" />
+					<h:outputText value="#{newUserBean.loginName}" />
+					<br />&#160;<br />
+					
+					<h:outputLabel for="geschlechtOut" value="Geschlecht" />
+					<h:outputText id="geschlechtOut" value="#{ newUserBean.gender}" 
+						converter="LocalizingGenderConverter" />
+					<br />&#160;<br />
+	
+					<h:outputLabel for="kennwortOut" value="Kennwort" />
+					<h:outputText id="kennwortOut" value="#{ newUserBean.password }" />
+					<br />&#160;<br />
+					
+					<h:commandButton value="Noch einen Benutzer anlegen!"
+						actionListener="#{ newUserController.addNewUser }">
+						
+						<f:ajax execute="@form" render="@form"></f:ajax>
+						
+					</h:commandButton>
+				
+					<br />&#160;<br />
+					
+					<h:outputLink value="ZeigeUser.xhtml">User anzeigen</h:outputLink>
+				</div>
+			</h:form>
+		
+		</ui:define>
+		
+		<ui:define name="kopfbereich">Registrierung</ui:define>
+		<ui:define name="fussbereich">
+			<div>
+				<h:form>
+					<h:commandLink style="color:white" action="register" value="Registrierung starten" />
+				</h:form>
+			</div>
+		</ui:define>
+	
+	</ui:composition>
+</html>

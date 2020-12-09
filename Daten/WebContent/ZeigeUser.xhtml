@@ -1,0 +1,35 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html">
+
+	<ui:composition template="/Template.xhtml">
+	
+		<ui:define name="inhaltsbereich">
+		
+			<h4>Existierende User</h4>
+			<h:dataTable var="user" value="#{ newUserController.users }">
+				<h:column>
+					<f:facet name="header">Benutzername</f:facet>
+					<div style="padding:10px">#{ user.loginName }</div>
+				</h:column>
+				<h:column>
+					<f:facet name="header">Geschlecht</f:facet>
+					<div style="padding:10px">
+						<h:outputText value="#{ user.gender }" converter="LocalizingGenderConverter"></h:outputText>
+					</div>
+				</h:column>
+			</h:dataTable>			
+
+		
+			<!-- Zurück zur Übersicht -->		
+			<h:form>
+				<h:commandButton action="RegisterUser" value="Zurück zur Übersicht"></h:commandButton>
+			</h:form>
+		</ui:define>
+	
+		<ui:define name="kopfbereich">Benutzer anzeigen</ui:define>
+	
+	</ui:composition>
+</html>
