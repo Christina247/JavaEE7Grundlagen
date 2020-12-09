@@ -1,0 +1,41 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"> 
+
+<h:head>
+	<h:outputStylesheet library="styles" name="style.css"></h:outputStylesheet>
+</h:head> 
+<body> 
+	<h1>Buch hinzufügen</h1>
+	<h:form>
+		<div>
+			<h:outputLabel value="Titel" for="title" />
+			<h:inputText id="title" value="#{ toBeSaved.title }" />
+		</div>&#160;
+		<div>
+			<h:outputLabel value="Jahr" for="year" />
+			<h:inputText id="year" value="#{ toBeSaved.year}">
+				<f:convertNumber integerOnly="true" groupingUsed="false"/>
+				<f:validateLongRange maximum="2020" minimum="1900"></f:validateLongRange>
+			</h:inputText>
+		</div>&#160;
+		<div>
+			<h:outputLabel value="ISBN" for="isbn" />
+			<h:inputText id="isbn" value="#{ toBeSaved.isbn }" />
+		</div>&#160;
+	
+		<div>
+			<h:commandButton actionListener="#{ bookHandler.createBook }" value="Hinzufügen" />
+		</div>
+		
+		<div>&#160;</div>
+		
+		<div>
+			<h:commandLink action="showBooks" value="Liste anzeigen" /> |
+			<h:commandLink action="addBook" value="Buch hinzufügen" />
+		</div>
+	</h:form>
+</body> 
+</html>

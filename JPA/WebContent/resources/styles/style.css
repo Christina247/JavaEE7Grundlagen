@@ -1,0 +1,37 @@
+body {
+			font-family: "Trebuchet MS";
+		}
+	
+		td, th {
+			margin-right: 10px;
+			margin-bottom: 5px;
+			margin-left: 10px;
+			text-align: left;
+		}
+		
+		table {
+			min-width: 75%;
+		}
+		
+		.headline {
+			background-color: black;
+			color: white;
+			font-weight: bold;
+		}
+		
+		.even {
+			background-color: white;
+			color: black;
+		}
+		
+		.odd {
+			background-color: #ccc;
+			color: black;
+		}
+		
+		label {
+			display:inline-block;
+			min-width: 100px;
+			margin-right:10px;
+			text-align: right;
+		}

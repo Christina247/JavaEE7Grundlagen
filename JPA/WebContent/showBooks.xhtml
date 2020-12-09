@@ -1,0 +1,49 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"> 
+
+<h:head>
+		<h:outputStylesheet library="styles" name="style.css"></h:outputStylesheet>
+</h:head> 
+<body> 
+	<h1>Bücher anzeigen</h1>
+	<h:form>
+		<h:dataTable headerClass="headline" rowClasses="odd,even" value="#{ bookHandler.books }" var="book">
+			<h:column>
+				<f:facet name="header">#</f:facet>
+				#{ book.id }
+			</h:column>
+			<h:column>
+				<f:facet name="header">Titel</f:facet>
+				#{ book.title }
+			</h:column>
+			<h:column>
+				<f:facet name="header">ISBN</f:facet>
+				#{ book.isbn }
+			</h:column>
+			<h:column>
+				<f:facet name="header">Jahr</f:facet>
+				#{ book.year }
+			</h:column>
+			<h:column>
+				<f:facet name="header">Autor(en)</f:facet>
+				<ui:repeat var="author" value="#{book.authors}">
+					#{ author.lastname }, #{author.name}<br />
+				</ui:repeat>
+			</h:column>
+			<h:column>
+				<h:commandLink action="#{ bookHandler.delete(book.id) }" value="Löschen"  /> |
+				<h:commandLink action="#{ bookHandler.update(book.id) }" value="Ändern"  /> 
+			</h:column>
+		</h:dataTable>
+	
+		<div>&#160;</div>
+		<div>
+			<h:commandLink action="showBooks" value="Liste anzeigen" /> |
+			<h:commandLink action="addBook" value="Buch hinzufügen" />
+		</div>
+	</h:form>
+</body> 
+</html>
