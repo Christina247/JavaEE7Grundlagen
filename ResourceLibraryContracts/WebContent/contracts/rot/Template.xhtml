@@ -1,0 +1,31 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"> 
+
+<h:head>
+	<h:outputStylesheet name="style.css"></h:outputStylesheet>
+	<h:outputScript name="hello.js"></h:outputScript>
+</h:head> 
+<body> 
+	<div id="wrapper">
+	
+		<div id="top">
+			<div>
+				<ui:insert name="kopfbereich">Resource Library Contracts</ui:insert>
+			</div>
+		</div>
+		
+		<div id="center">
+			<div>
+				<ui:insert name="inhaltsbereich">
+					<div>Ressourcen Library Contracts sind ganz einfach zu verwenden</div>
+					<div><button onclick="sayHello()">Sag Hallo!</button></div>
+				</ui:insert>
+			</div>
+		</div>
+	
+	</div>
+</body> 
+</html>
